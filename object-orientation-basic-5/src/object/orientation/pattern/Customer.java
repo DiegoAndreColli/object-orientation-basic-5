@@ -12,8 +12,8 @@ package object.orientation.pattern;
 public class Customer {
 
     private String name;
-    private boolean isWoman;
-    private boolean isElderly;
+    private boolean woman;
+    private boolean elderly;
 
     public String getName() {
         return name;
@@ -23,20 +23,20 @@ public class Customer {
         this.name = name;
     }
 
-    public boolean isIsWoman() {
-        return isWoman;
+    public boolean isWoman() {
+        return woman;
     }
 
-    public void setIsWoman(boolean isWoman) {
-        this.isWoman = isWoman;
+    public void setWoman(boolean woman) {
+        this.woman = woman;
     }
 
-    public boolean isIsElderly() {
-        return isElderly;
+    public boolean isElderly() {
+        return elderly;
     }
 
-    public void setIsElderly(boolean isElderly) {
-        this.isElderly = isElderly;
+    public void setElderly(boolean elderly) {
+        this.elderly = elderly;
     }
 
 }
