@@ -21,7 +21,7 @@ public class SalePricingAbsoluteDiscountOverThresholdStrategy implements SalePri
 
     @Override
     public Double getTotal(Sale sale) {
-        Double saleTotal = sale.getTotal();
+        Double saleTotal = sale.getPreDiscountTotal();
 
         if (saleTotal > threshold)
             return saleTotal - discount;

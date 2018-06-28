@@ -35,7 +35,7 @@ public class SalePricingProductBonusStrategy implements SalePricingStrategy {
                 discount += round * aspirinLine.getItem().getValue();
             }
         }
-        return sale.getTotal() - discount;
+        return sale.getPreDiscountTotal() - discount;
     }
 
 }

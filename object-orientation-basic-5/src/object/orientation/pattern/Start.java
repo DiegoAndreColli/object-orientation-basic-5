@@ -20,32 +20,32 @@ public class Start {
        Sale sNoDis = new Sale();
        sNoDis.setCustomer(a);
        sNoDis.setLines(getRegularLines());
-       System.out.println("No Disc:  "+sNoDis.getFinalTotal());
+       System.out.println("No Disc:  "+sNoDis.getTotal());
        
        Sale sAsDis = new Sale();
        sAsDis.setCustomer(a);
        sAsDis.setLines(getAspirinLines());
-       System.out.println("Disc ASp:  "+sAsDis.getFinalTotal());
+       System.out.println("Disc ASp:  "+sAsDis.getTotal());
        
        Sale sWoman = new Sale();
        sWoman.setCustomer(b);
        sWoman.setLines(getRegularLines());
-       System.out.println("Woman:  "+sWoman.getFinalTotal());
+       System.out.println("Woman:  "+sWoman.getTotal());
        
        Sale sWomanAsp = new Sale();
        sWomanAsp.setCustomer(b);
        sWomanAsp.setLines(getAspirinLines());
-       System.out.println("Woman + Asp:  "+sWomanAsp.getFinalTotal());
+       System.out.println("Woman + Asp:  "+sWomanAsp.getTotal());
        
        Sale sElder = new Sale();
        sElder.setCustomer(c);
        sElder.setLines(getRegularLines());
-       System.out.println("Elder:  "+sElder.getFinalTotal());
+       System.out.println("Elder:  "+sElder.getTotal());
        
        Sale sElderAsp = new Sale();       
        sElderAsp.setCustomer(c);
        sElderAsp.setLines(getAspirinLines());
-       System.out.println("Elder + asp:  "+sElderAsp.getFinalTotal());
+       System.out.println("Elder + asp:  "+sElderAsp.getTotal());
        
     }
     

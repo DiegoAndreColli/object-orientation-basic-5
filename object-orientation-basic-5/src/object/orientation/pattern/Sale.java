@@ -14,12 +14,12 @@ public class Sale {
     private Customer customer;
     private List<SaleLine> lines;
 
-    public Double getFinalTotal() {
-        Double total = getTotal();
+    public Double getTotal() {
+        Double total = getPreDiscountTotal();
         return  total - getDiscount(total);
     }
 
-    public Double getTotal() {
+    public Double getPreDiscountTotal() {
         Double total = 0.0;
         for (SaleLine line : lines) {
             total += line.getQuantity() * line.getItem().getValue();
