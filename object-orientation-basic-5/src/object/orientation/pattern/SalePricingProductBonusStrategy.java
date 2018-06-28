@@ -25,14 +25,14 @@ public class SalePricingProductBonusStrategy implements SalePricingStrategy {
     @Override
     public Double getTotal(Sale sale) {
         Double discount = 0.0;
-        List<SaleLine> aspirinLines = sale.getLines().stream()
+        List<SaleLine> saleLines = sale.getLines().stream()
                 .filter(l -> product.equals(l.getItem().getName()) && l.getQuantity() > threshold)
                 .collect(Collectors.toList());
-        if (!aspirinLines.isEmpty()) {
-            for (SaleLine aspirinLine : aspirinLines) {
-                double quantity = aspirinLine.getQuantity() / threshold;
+        if (!saleLines.isEmpty()) {
+            for (SaleLine saleLine : saleLines) {
+                double quantity = saleLine.getQuantity() / threshold;
                 long round = (long) quantity;
-                discount += round * aspirinLine.getItem().getValue();
+                discount += round * saleLine.getItem().getValue();
             }
         }
         return sale.getPreDiscountTotal() - discount;
