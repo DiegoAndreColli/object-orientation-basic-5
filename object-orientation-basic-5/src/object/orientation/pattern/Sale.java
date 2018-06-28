@@ -52,10 +52,9 @@ public class Sale {
                 double quantity = aspirinLine.getQuantity() / 3.0;
                 long round = (long) quantity;
                 discount += round * aspirinLine.getItem().getValue();
-            }            
+            }
             return discount;
         }
-        
         
         return 0.0;
     }
