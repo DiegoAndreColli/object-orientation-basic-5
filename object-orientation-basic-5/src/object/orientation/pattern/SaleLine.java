@@ -5,6 +5,7 @@ package object.orientation.pattern;
  * @author User
  */
 public class SaleLine {
+
     private Item item;
     private Double quantity;
 
@@ -23,5 +24,5 @@ public class SaleLine {
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
-    
+
 }

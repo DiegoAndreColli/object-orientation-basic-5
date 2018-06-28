@@ -5,6 +5,7 @@ package object.orientation.pattern;
  * @author User
  */
 public class Item {
+
     private String name;
     private Double value;
 
@@ -23,5 +24,5 @@ public class Item {
     public void setValue(Double value) {
         this.value = value;
     }
-    
+
 }
