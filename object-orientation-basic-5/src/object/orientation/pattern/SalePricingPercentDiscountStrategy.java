@@ -19,6 +19,7 @@ public class SalePricingPercentDiscountStrategy implements SalePricingStrategy {
 
     @Override
     public Double getTotal(Sale sale) {
-        return sale.getTotal() * percentage;
+        Double saleTotal = sale.getTotal();
+        return saleTotal - (saleTotal * percentage);
     }
 }

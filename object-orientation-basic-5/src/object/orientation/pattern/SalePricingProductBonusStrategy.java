@@ -24,7 +24,6 @@ public class SalePricingProductBonusStrategy implements SalePricingStrategy {
 
     @Override
     public Double getTotal(Sale sale) {
-
         Double discount = 0.0;
         List<SaleLine> aspirinLines = sale.getLines().stream()
                 .filter(l -> product.equals(l.getItem().getName()) && l.getQuantity() > threshold)
@@ -36,8 +35,7 @@ public class SalePricingProductBonusStrategy implements SalePricingStrategy {
                 discount += round * aspirinLine.getItem().getValue();
             }
         }
-
-        return discount;
+        return sale.getTotal() - discount;
     }
 
 }
