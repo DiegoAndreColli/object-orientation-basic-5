@@ -1,24 +1,21 @@
 package object.orientation.pattern;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
  * @author User
  */
 public class Sale {
-
+    
     private Customer customer;
     private List<SaleLine> lines;
-
+    private SalePricingStrategy pricingStrategy;
+    
     public Double getTotal() {
-        Double total = getPreDiscountTotal();
-        return  total - getDiscount(total);
+        return pricingStrategy.getTotal(this);
     }
-
+    
     public Double getPreDiscountTotal() {
         Double total = 0.0;
         for (SaleLine line : lines) {
@@ -26,51 +23,19 @@ public class Sale {
         }
         return total;
     }
-
-    public Double getDiscount(Double total) {        
-        if(customer.isWoman())
-        {
-            String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM"));
-            if (now.equals("08-03"))
-                return total * 0.10;
-        }
-        
-        if(customer.isElderly())
-            return total * 0.05;
-        
-        if(total > 100.0)
-            return 15.0;
-        
-       
-        List<SaleLine> aspirinLines = lines.stream()
-                .filter(l -> "aspirin".equals(l.getItem().getName()) && l.getQuantity() > 3)
-                .collect(Collectors.toList());
-        if(!aspirinLines.isEmpty())
-        {
-            Double discount = 0.0;
-            for (SaleLine aspirinLine : aspirinLines) {
-                double quantity = aspirinLine.getQuantity() / 3.0;
-                long round = (long) quantity;
-                discount += round * aspirinLine.getItem().getValue();
-            }
-            return discount;
-        }
-        
-        return 0.0;
-    }
-
+    
     public List<SaleLine> getLines() {
         return lines;
     }
-
+    
     public void setLines(List<SaleLine> lines) {
         this.lines = lines;
     }
-
+    
     public Customer getCustomer() {
         return customer;
     }
-
+    
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
