@@ -4,6 +4,6 @@ package object.orientation.pattern;
  *
  * @author User
  */
-public interface PricingStrategy {
+public interface SalePricingStrategy {
     Double getTotal(Sale sale);
 }
