@@ -42,10 +42,19 @@ public class Sale {
             return 15.0;
         
        
-        List<SaleLine> condition = lines.stream()
+        List<SaleLine> aspirinLines = lines.stream()
                 .filter(l -> "aspirin".equals(l.getItem().getName()) && l.getQuantity() > 3)
                 .collect(Collectors.toList());
-        
+        if(!aspirinLines.isEmpty())
+        {
+            Double discount = 0.0;
+            for (SaleLine aspirinLine : aspirinLines) {
+                double quantity = aspirinLine.getQuantity() / 3.0;
+                long round = (long) quantity;
+                discount += round * aspirinLine.getItem().getValue();
+            }            
+            return discount;
+        }
         
         
         return 0.0;
