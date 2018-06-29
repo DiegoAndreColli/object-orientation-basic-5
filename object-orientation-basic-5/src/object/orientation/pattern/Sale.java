@@ -10,10 +10,9 @@ public class Sale {
     
     private Customer customer;
     private List<SaleLine> lines;
-    private SalePricingStrategy pricingStrategy;
     
     public Double getTotal() {
-        return pricingStrategy.getTotal(this);
+        return SalePricingStrategyFactory.getInstance(this).getTotal(this);
     }
     
     public Double getPreDiscountTotal() {

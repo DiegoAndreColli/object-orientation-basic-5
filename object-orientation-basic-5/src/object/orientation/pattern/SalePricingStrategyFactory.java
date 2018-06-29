@@ -5,11 +5,6 @@
  */
 package object.orientation.pattern;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  *
  * @author User
@@ -19,7 +14,7 @@ public class SalePricingStrategyFactory {
     public static SalePricingStrategy getInstance(Sale sale){
 
         //no discount
-        return d -> d.getTotal();        
+        return d -> d.getTotal();
     }
     
     private static SalePricingStrategy getSalePricingProductBonusStrategy(String product, Double threshold){
