@@ -9,17 +9,20 @@ package object.orientation.pattern;
  *
  * @author User
  */
-public class SalePricingPercentDiscountStrategy implements SalePricingStrategy {
+public class SalePricingElderlyPercentDiscountStrategy implements SalePricingStrategy {
 
     private final Double percentage;
 
-    public SalePricingPercentDiscountStrategy(Double percentage) {
+    public SalePricingElderlyPercentDiscountStrategy(Double percentage) {
         this.percentage = percentage;
     }
 
     @Override
     public Double getTotal(Sale sale) {
         Double saleTotal = sale.getPreDiscountTotal();
-        return saleTotal - (saleTotal * percentage);
+        if (sale.getCustomer().isElderly()) {
+            return saleTotal - (saleTotal * percentage);
+        }
+        return saleTotal;
     }
 }
